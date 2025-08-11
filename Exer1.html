@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyntraBag</title>
+    <link rel="stylesheet" href="Exer1.css">
+</head>
+<body>
+    <button id="clickid" onclick="cartQuantity++; document.querySelector('#cart-summary').innerHTML=`Your cart has ${cartQuantity} items`;">Add to Bag</button>
+    <button class="clickclass" onclick="cartQuantity--; document.querySelector('#cart-summary').innerHTML=`Your cart has ${cartQuantity} items`;">MOVE TO WISHLIST</button>
+    <button id="clickid" onclick="cartQuantity += 2; document.querySelector('#cart-summary').innerHTML=`Your cart has ${cartQuantity} items`;">Add 1+1 sale Item</button>
+    <h1 id="cart-summary"></h1>
+    <script src="Exer1.js"></script>
+</body>
+</html>
