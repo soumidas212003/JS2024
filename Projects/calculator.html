@@ -8,135 +8,151 @@
   <div id="calculator">
     <input type="text" id="display" readonly placeholder="0">
     <div class="button-container">
-      <button class="button b-sp-color"onclick="
+      <button class="button b-sp-color" onclick="
       currentDisplay = '';
       document.querySelector('#display').value = currentDisplay;
       ">AC</button>
+
       <button class="button b-sp-color" onclick="
       currentDisplay = currentDisplay.slice(0, -1);
       document.querySelector('#display').value = currentDisplay;
       ">DEL</button>
+
       <button class="button b-sp-color" onclick="
       if (justCalculated) {
-      justCalculated = false;
-      continuedAfterOperator = true;
+        justCalculated = false;
+        continuedAfterOperator = true;
       }
-      currentDisplay = currentDisplay + '%';
-      document.querySelector('#display').value = currentDisplay;
+      addOperator('%');
       ">%</button>
-      <button class="button b-color"onclick="
+
+      <button class="button b-color" onclick="
       if (justCalculated) {
-      justCalculated = false;
-      continuedAfterOperator = true;
+        justCalculated = false;
+        continuedAfterOperator = true;
       }
-      currentDisplay = currentDisplay + '/';
-      document.querySelector('#display').value = currentDisplay;
+      addOperator('/');
       ">/</button>
       
-      <button class="button"onclick="
+      <button class="button" onclick="
       if (justCalculated) { currentDisplay = ''; justCalculated = false; }
       currentDisplay = currentDisplay + '7';
       document.querySelector('#display').value = currentDisplay;
       ">7</button>
-      <button class="button"onclick="
+
+      <button class="button" onclick="
       if (justCalculated) { currentDisplay = ''; justCalculated = false; }
       currentDisplay = currentDisplay + '8';
       document.querySelector('#display').value = currentDisplay;
       ">8</button>
-      <button class="button"onclick="
-       if (justCalculated) { currentDisplay = ''; justCalculated = false; }
+
+      <button class="button" onclick="
+      if (justCalculated) { currentDisplay = ''; justCalculated = false; }
       currentDisplay = currentDisplay + '9';
       document.querySelector('#display').value = currentDisplay;
       ">9</button>
-      <button class="button b-color"onclick="
+
+      <button class="button b-color" onclick="
       if (justCalculated) {
-      justCalculated = false;
-      continuedAfterOperator = true;
+        justCalculated = false;
+        continuedAfterOperator = true;
       }
-      currentDisplay = currentDisplay + '*';
-      document.querySelector('#display').value = currentDisplay;
+      addOperator('*');
       ">*</button>
 
-      <button class="button"onclick="
+      <button class="button" onclick="
       if (justCalculated) { currentDisplay = ''; justCalculated = false; }
       currentDisplay = currentDisplay + '4';
       document.querySelector('#display').value = currentDisplay;
       ">4</button>
-      <button class="button"onclick="
+
+      <button class="button" onclick="
       if (justCalculated) { currentDisplay = ''; justCalculated = false; }
       currentDisplay = currentDisplay + '5';
       document.querySelector('#display').value = currentDisplay;
       ">5</button>
-      <button class="button"onclick="
+
+      <button class="button" onclick="
       if (justCalculated) { currentDisplay = ''; justCalculated = false; }
       currentDisplay = currentDisplay + '6';
       document.querySelector('#display').value = currentDisplay;
       ">6</button>
-        <button class="button b-color"onclick="
+
+      <button class="button b-color" onclick="
       if (justCalculated) {
-      justCalculated = false;
-      continuedAfterOperator = true;
+        justCalculated = false;
+        continuedAfterOperator = true;
       }
-      currentDisplay = currentDisplay + '-';
-      document.querySelector('#display').value = currentDisplay;
+      addOperator('-');
       ">-</button>
 
-      
       <button class="button" onclick="
       if (justCalculated) { currentDisplay = ''; justCalculated = false; }
       currentDisplay = currentDisplay + '1';
       document.querySelector('#display').value = currentDisplay;
       ">1</button>
-      <button class="button"onclick="
+
+      <button class="button" onclick="
       if (justCalculated) { currentDisplay = ''; justCalculated = false; }
       currentDisplay = currentDisplay + '2';
       document.querySelector('#display').value = currentDisplay;
       ">2</button>
-      <button class="button"onclick="
+
+      <button class="button" onclick="
       if (justCalculated) { currentDisplay = ''; justCalculated = false; }
       currentDisplay = currentDisplay + '3';
       document.querySelector('#display').value = currentDisplay;
       ">3</button>
-      <button class="button b-color"onclick="
+
+      <button class="button b-color" onclick="
       if (justCalculated) {
-      justCalculated = false;
-      continuedAfterOperator = true;
+        justCalculated = false;
+        continuedAfterOperator = true;
       }
-      currentDisplay = currentDisplay + '+';
-      document.querySelector('#display').value = currentDisplay;
+      addOperator('+');
       ">+</button>
     
-      <button id="button-zero" class="button"onclick="
-       if (justCalculated) { currentDisplay = ''; justCalculated = false; }
+      <button id="button-zero" class="button" onclick="
+      if (justCalculated) { currentDisplay = ''; justCalculated = false; }
       currentDisplay = currentDisplay + '0';
       document.querySelector('#display').value = currentDisplay;
       ">0</button>
-            <button class="button" onclick="
+
+      <button class="button" onclick="
       if (justCalculated && !continuedAfterOperator) {
-      currentDisplay = '';
-      justCalculated = false;
+        currentDisplay = '';
+        justCalculated = false;
       }
       currentDisplay = currentDisplay + '.';
       document.querySelector('#display').value = currentDisplay;
       ">.</button>
-        <button id="b-eq-color" class="button"onclick="
+
+      <button id="b-eq-color" class="button" onclick="
       currentDisplay = eval(currentDisplay);
       document.querySelector('#display').value = currentDisplay;
       justCalculated = true;
       continuedAfterOperator = false;
       ">=</button>
-
-
     </div>
   </div>
+
   <script>
     let justCalculated = false;
     let continuedAfterOperator = false;
-
     let currentDisplay = '';
     document.querySelector('#display').value = currentDisplay;
 
+    // New reusable function for adding/replacing operator
+    function addOperator(op) {
+      const operators = ['+', '-', '*', '/', '%'];
+      const lastChar = currentDisplay.slice(-1);
+      if (operators.includes(lastChar)) {
+        currentDisplay = currentDisplay.slice(0, -1) + op; // replace
+      } else {
+        currentDisplay = currentDisplay + op; // append
+      }
+      document.querySelector('#display').value = currentDisplay;
+    }
   </script>
-
 </body>
 </html>
