@@ -1,0 +1,147 @@
+
+body {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  height: 100vh;           /* Full height of viewport */
+  margin: 0;               /* Remove default margin */
+  background-color: #f2f2f2; /* Optional: light background */
+  background-color: rgb(40, 40, 40);
+}
+
+#calculator {
+  border: 1px solid rgb(187, 183, 183);
+  border-radius: 15px;
+  width: 270px;
+  background-color: black;
+  padding: 20px;          /* more inner spacing */
+  padding-bottom: 40px;   /* extra bottom space */
+}
+
+#display {
+  margin: 10px;
+  width: 90%;
+  height: 60px;
+  font-size: 25px;
+  text-align: right;
+  border-radius: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0px;
+
+}
+
+.button {
+  width: 60px;
+  height: 60px;
+  margin: 3px;
+  background-color: rgb(121, 121, 121);
+  color: white;
+  border-radius: 15px;
+  font-size: 20px;        /* larger text */
+}
+
+#button-zero{
+    padding: 2px 45px;
+}
+.b-color{
+    background-color: rgb(255, 191, 80);
+}
+#b-eq-color{
+     background-color: rgb(255, 121, 80);
+}
+.b-sp-color{
+    background-color: rgb(82, 82, 82);
+}
+
+.button:hover {
+  background-color: rgb(180, 180, 180); /* lighter background */
+  color: black;                         /* change text color */
+  cursor: pointer;                      /* pointer cursor */
+  transform: scale(1.05);               /* slight zoom effect */
+  transition: 0.2s;                      /* smooth transition */
+}
+
+.b-color:hover {
+  background-color: rgb(255, 211, 120);  /* lighter yellow */
+}
+
+#b-eq-color:hover {
+  background-color: rgb(255, 141, 100);  /* lighter orange */
+}
+
+.b-sp-color:hover {
+  background-color: rgb(102, 102, 102);  /* lighter dark gray */
+}
+
+/* Smallest screens */
+@media screen and (max-width: 250px) {
+  #calculator {
+    width: 95%;
+    padding: 10px;
+  }
+
+  #display {
+    font-size: 20px;
+    height: 45px;
+  }
+
+  .button {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  #button-zero {
+    padding: 2px 25px;
+  }
+}
+
+/* Extra small but slightly bigger screens */
+@media screen and (min-width: 250px) and (max-width: 305px) {
+  #calculator {
+    width: 90%;
+    padding: 10px;
+  }
+
+  #display {
+    font-size: 22px;
+    height: 50px;
+  }
+
+  .button {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  #button-zero {
+    padding: 2px 35px;
+  }
+}
+/* Larger screens (tablets, desktops) */
+@media screen and (min-width: 768px) {
+  #calculator {
+    width: 320px;        /* slightly bigger calculator */
+    padding: 25px;
+  }
+
+  #display {
+    font-size: 28px;
+    height: 70px;
+  }
+
+  .button {
+    width: 70px;
+    height: 70px;
+    font-size: 22px;
+  }
+
+  #button-zero {
+    padding: 2px 55px;
+  }
+}
